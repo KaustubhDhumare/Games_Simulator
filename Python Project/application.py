@@ -4,12 +4,13 @@ sim = GamesSimulator()
 
 choice = 0 
 
-while choice != 3:
+while choice != 4:
     print('''
         Choose your game:  
         1. Rock Paper Scissor    
         2. Number guessing   
-        3. Exit
+        3. Dice rolling game
+        4. Exit
           ''')
     
     choice = int(input("Enter your game number: "))
@@ -28,5 +29,9 @@ while choice != 3:
         sim.number_guessing()
 
     elif choice == 3:
-        print("Exiting the application")
-        sys.exit()
+        print("\"Dice rolling game is started\"")
+        sim.dice_rolling()
+
+    elif choice == 4:
+        print('exiting the appplication')
+        sys.exit()  

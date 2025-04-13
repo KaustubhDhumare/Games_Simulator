@@ -59,4 +59,63 @@ class GamesSimulator:
         if i == 1:
             print("You lost the game, play again")
     
+    def dice_rolling(self):
+        from random import randint
+        # Player 1
+        player1 = []
+        p1 = 0
+        click = "Roll"
+        start = click.upper()
+        r1 = input("Player 1\nType \"Roll\" to start: ")
+        u1 = r1.upper()
+        for i in range(3):
+            if u1 != start:
+                print("Only type \"Roll\" to play the game")
+                break
+            else:
+                dice1 = randint(1,6)
+                player1.append(dice1)
+                        
+        for i in player1:
+            if i == 6:
+                extra_roll = randint(1,6)
+                player1.append(extra_roll)
+
+        for p1_Score in player1:
+            p1 = p1_Score + p1
+
+
+        # Player 2
+        player2 = []
+        p2 = 0
+        r2 = input("Player 2\nType \"Roll\" to start: ")
+        u2 = r2.upper()
+        for i in range(3):
+            if u2 != start:
+                print("Only type \"Roll\" to play the game")
+                break
+            else:
+                dice2 = randint(1,6)
+                player2.append(dice2)
+                        
+        for i in player2:
+            if i == 6:
+                extra_roll = randint(1,6)
+                player2.append(extra_roll)
+
+        for p2_Score in player2:
+            p2 = p2_Score + p2
+
+
+        print(f"Player 1 Score is {p1}\nPlayer 2 score is {p2}")
+        print()
+
+        if p1 == p2 :
+            print("It's a draw")
+
+        else:
+            if p1 > p2 :
+                print("Winner is player 1")
+            else:
+                print("Winner is player 2")
 
