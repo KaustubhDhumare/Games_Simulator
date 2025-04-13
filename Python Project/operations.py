@@ -41,23 +41,19 @@ class GamesSimulator:
     
     def number_guessing(self):
         from random import randint
-        print("Input only integers")
-
-        num = randint(1, 20)
-        for i in range (3, 0, -1):
-            print(f"You have left {i} chance")
-            print()
-            guess = int(input("Enter your guess: "))
-            if num == guess:
-                print("Correct answer!, You win")
-                break
+        num = randint(1,100)
+        print("Guess the number between 1 to 100")
+        attempts = 0
+        while True:
+            guess = int(input("Enter a number: "))
+            attempts += 1
+            if guess > num :
+                print("Number is too high!")
+            elif guess < num:
+                print("Number is too low!")
             else:
-                print("Wrong answer!, Try again")
-
-        print()
-
-        if i == 1:
-            print("You lost the game, play again")
+                print(f"Correct! you took {attempts} attempts to guess")
+                break
     
     def dice_rolling(self):
         from random import randint
