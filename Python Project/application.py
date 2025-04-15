@@ -17,20 +17,42 @@ while choice != 4:
 
     if choice == 1:
         print("\"Rock Paper Scissor game started\"")
-        i = 1
-        chance = int(input("Enter the number of time you want to play this game : "))
-        while i <= chance:
-            print(f"You have {chance} chance you use {i} chance")
-            sim.rock_paper_scissor()
-            i += 1
+        while True:
+            print('''
+                1. Play game
+                2. Exit
+                ''')
+            game_choice = int(input("Enter your Game setting: "))
+            if game_choice == 1:
+                sim.rock_paper_scissor()
+            else:
+                break
     
     elif choice == 2:
         print("\"Number guessing game is started\"")
-        sim.number_guessing()
+        while True:
+            print('''
+                1. Play game
+                2. Exit
+                ''')
+            game_choice = int(input("Enter your Game setting: "))
+            if game_choice == 1:
+                sim.number_guessing()
+            else:
+                break
 
     elif choice == 3:
         print("\"Dice rolling game is started\"")
-        sim.dice_rolling()
+        while True:
+            print('''
+                1. Play game
+                2. Exit
+                ''')
+            game_choice = int(input("Enter your Game setting: "))
+            if game_choice == 1:
+                sim.dice_rolling()   
+            else:
+                break
 
     elif choice == 4:
         print('exiting the appplication')
