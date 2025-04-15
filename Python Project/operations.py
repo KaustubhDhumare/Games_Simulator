@@ -13,31 +13,16 @@ class GamesSimulator:
         reversedict = { 1: "Rock", -1: "Paper", 0: "scissor"}
         you = youdict[youstr]
 
-        print(f"you chose {reversedict[you]}\ncomputer chose {reversedict[computer]}")
+        print(f"you choose {reversedict[you]}\ncomputer choose {reversedict[computer]}")
 
         if(computer == you ):
             print("Its a Draw!")
         else:
-            if(computer == 1 and you == -1): 
+            if(computer == 1 and you == -1) or (computer == -1 and you == 0) or (computer == 0 and you == 1) : 
                 print("You Win!")
-            
-            elif(computer == 1 and you == 0):
-                print("You Lose!")
-            
-            elif(computer == -1 and you == 1):
-                print("You Lose!")
-            
-            elif(computer == -1 and you == 0):
-                print("You WIn!")
-            
-            elif(computer == 0 and you == 1):
-                print("You Win!")
-            
-            elif(computer == 0 and you == -1):
-                print("You Lose!")
-            
-            elif():
-                print("Something went wrong!")
+
+            else:
+                print("You Lose")
     
     def number_guessing(self):
         from random import randint
@@ -55,63 +40,39 @@ class GamesSimulator:
                 print(f"Correct! you took {attempts} attempts to guess")
                 break
     
-    def dice_rolling(self):
+    def roll_dice(self, player_name):
         from random import randint
-        # Player 1
-        player1 = []
-        p1 = 0
-        click = "Roll"
-        start = click.upper()
-        r1 = input("Player 1\nType \"Roll\" to start: ")
-        u1 = r1.upper()
+        player = []
+        total = 0
+        start = "ROLL"
+        r = input(f"{player_name}\nType \"Roll\" to start: ").upper()
         for i in range(3):
-            if u1 != start:
+            if r != start:
                 print("Only type \"Roll\" to play the game")
                 break
             else:
-                dice1 = randint(1,6)
-                player1.append(dice1)
+                roll = randint(1,6)
+                player.append(roll)
                         
-        for i in player1:
+        for i in player:
             if i == 6:
-                extra_roll = randint(1,6)
-                player1.append(extra_roll)
+                player.append(randint(1,6))
 
-        for p1_Score in player1:
-            p1 = p1_Score + p1
+        for score in player:
+            total += score
 
+        return total
+    
+    def dice_rolling(self):
+        p1 = self.roll_dice("Player 1")
+        p2 = self.roll_dice("Player 2")
 
-        # Player 2
-        player2 = []
-        p2 = 0
-        r2 = input("Player 2\nType \"Roll\" to start: ")
-        u2 = r2.upper()
-        for i in range(3):
-            if u2 != start:
-                print("Only type \"Roll\" to play the game")
-                break
-            else:
-                dice2 = randint(1,6)
-                player2.append(dice2)
-                        
-        for i in player2:
-            if i == 6:
-                extra_roll = randint(1,6)
-                player2.append(extra_roll)
-
-        for p2_Score in player2:
-            p2 = p2_Score + p2
-
-
-        print(f"Player 1 Score is {p1}\nPlayer 2 score is {p2}")
+        print(f"Player 1 Score is {p1}\nPlayer 2 Score is {p2}")
         print()
 
-        if p1 == p2 :
+        if p1 == p2:
             print("It's a draw")
-
+        elif p1 > p2:
+            print("Winner is Player 1")
         else:
-            if p1 > p2 :
-                print("Winner is player 1")
-            else:
-                print("Winner is player 2")
-
+            print("Winner is Player 2")
