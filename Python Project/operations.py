@@ -76,3 +76,21 @@ class GamesSimulator:
             print("Winner is Player 1")
         else:
             print("Winner is Player 2")
+
+    def number_run(self):
+        from random import randint
+        score = 0
+        print("Enter number betweem 1 to 10 to start number run")
+
+        while True :
+            computer = randint(1,10)
+            player = int(input("Enter a number: "))
+            print(f"Your number: {player}, Computer's number: {computer}")
+
+            if computer == player :
+                print(f"You Lose, \nYour Score is {score}")
+                break
+            
+            score += 1
+                
+        
