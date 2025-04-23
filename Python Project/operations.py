@@ -87,7 +87,11 @@ class GamesSimulator:
             player = int(input("Enter a number: "))
             print(f"Your number: {player}, Computer's number: {computer}")
 
-            if computer == player :
+            if player > 10:
+                print("The number is out of range, Play again!")
+                break
+
+            elif computer == player :
                 print(f"You Lose, \nYour Score is {score}")
                 break
             
